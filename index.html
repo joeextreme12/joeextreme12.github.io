@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Joseph Alejandro Uribe Ruiz</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-text: #7f8c8d;
+            --background: #ecf0f1;
+            --card-bg: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+        }
+        
+        .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            border: 3px solid var(--secondary-color);
+            overflow: hidden;
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .contact-icon {
+            min-width: 25px;
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+        
+        .skill {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #34495e;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+        
+        .language {
+            margin-bottom: 10px;
+        }
+        
+        .language-name {
+            font-weight: 600;
+        }
+        
+        .main-content {
+            background-color: var(--card-bg);
+            padding: 30px;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+        }
+        
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .profession {
+            font-size: 18px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .main-section {
+            margin-bottom: 25px;
+        }
+        
+        .main-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .item-date {
+            color: var(--light-text);
+            font-style: italic;
+        }
+        
+        .item-subtitle {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .item-description {
+            color: var(--light-text);
+        }
+        
+        ul.item-details {
+            list-style-type: none;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul.item-details li {
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        ul.item-details li:before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .interest-item {
+            background-color: #f8f9fa;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .profile-text {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="photo-placeholder">
+                <img src="preview.webp" alt="Joseph Alejandro Uribe Ruiz" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            
+            <div class="contact-info">
+                <h3 class="section-title">Contacto</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>al059644@uacam.mx</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>caractervald@gmail.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>981-111-1982</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🔗</div>
+                    <div>LinkedIn: joseph-a-uribe-ruiz</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>San Francisco de Campeche, México</div>
+                </div>
+            </div>
+            
+            <div class="skills-section">
+                <h3 class="section-title">Habilidades Técnicas</h3>
+                
+                <div class="skill">
+                    <div class="skill-name">JavaScript/HTML/CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name">Java</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name">Python/Flask</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name">MySQL/MongoDB</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name">AWS</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name">Git/GitHub</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Unity/Blender</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 65%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill">
+                    <div class="skill-name">Microsoft Office</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="languages-section">
+                <h3 class="section-title">Idiomas</h3>
+                
+                <div class="language">
+                    <div class="language-name">Español</div>
+                    <div>Nativo</div>
+                </div>
+                
+                <div class="language">
+                    <div class="language-name">Inglés</div>
+                    <div>Intermedio (comprensión oral y escrita)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1 class="name">Joseph Alejandro Uribe Ruiz</h1>
+                <h2 class="profession">Ingeniero en Sistemas Computacionales</h2>
+                <div class="profile-text">
+                    Desarrollador fullstack en formación con experiencia en proyectos web, sistemas de gestión y soporte técnico. 
+                    Líder de equipo con habilidades en desarrollo Frontend/Backend y gestión de proyectos. 
+                    Participante activo en eventos de tecnología como Talent Land. 
+                    Especialista certificado en herramientas Microsoft Office.
+                </div>
+            </div>
+            
+            <div class="main-section">
+                <h3 class="main-title">Experiencia</h3>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">LÍDER DE DESARROLLO | SISTEMA DE CONTROL DE INVENTARIO Y VENTAS</div>
+                        <div class="item-date">Actual</div>
+                    </div>
+                    <div class="item-subtitle">Óptica AH-KIM-PECH - Proyecto académico</div>
+                    <ul class="item-details">
+                        <li>Dirijo el equipo de desarrollo para un sistema integral de control de inventario y ventas</li>
+                        <li>Implemento soluciones fullstack para gestión de productos, clientes y transacciones</li>
+                        <li>Coordino las fases de diseño, desarrollo, testing e implementación</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">DESARROLLADOR FULLSTACK</div>
+                        <div class="item-date">2023</div>
+                    </div>
+                    <div class="item-subtitle">Vidrios y Aluminios Armando - Proyecto académico</div>
+                    <ul class="item-details">
+                        <li>Desarrollé e implementé aluminiosarmando.com</li>
+                        <li>Participé tanto en el desarrollo frontend como backend del sitio web</li>
+                        <li>Integré funcionalidades de presentación de productos y formularios de contacto</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">DESARROLLADOR WEB</div>
+                        <div class="item-date">Proyecto académico</div>
+                    </div>
+                    <div class="item-subtitle">Materiales para Construcción Miguel Hidalgo</div>
+                    <ul class="item-details">
+                        <li>Implementé el sitio web de la empresa utilizando tecnologías modernas</li>
+                        <li>Contribuí al desarrollo de interfaz de usuario y funcionalidades del sistema</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">SOPORTE TÉCNICO Y REDES</div>
+                        <div class="item-date">Servicio Social</div>
+                    </div>
+                    <div class="item-subtitle">Fiscalía General del Estado de Campeche</div>
+                    <ul class="item-details">
+                        <li>Proporcioné mantenimiento a equipos informáticos y servidores</li>
+                        <li>Brindé soporte técnico a usuarios y realicé instalación y configuración de software</li>
+                        <li>Asistí en tareas de mantenimiento de infraestructura de red</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="main-section">
+                <h3 class="main-title">Educación</h3>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">INGENIERÍA EN SISTEMAS COMPUTACIONALES</div>
+                        <div class="item-date">Graduación esperada: 2025</div>
+                    </div>
+                    <div class="item-subtitle">Universidad Autónoma de Campeche (UAC)</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">BACHILLERATO</div>
+                    </div>
+                    <div class="item-subtitle">Preparatoria Lic. Ermilo Sandoval Campos - UAC</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-title">EDUCACIÓN SECUNDARIA</div>
+                    </div>
+                    <div class="item-subtitle">Escuela Secundaria Técnica No. 1 de Campeche</div>
+                </div>
+            </div>
+            
+            <div class="main-section">
+                <h3 class="main-title">Certificaciones</h3>
+                
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="item-title">Microsoft Excel 2016</div>
+                        <div class="item-description">Certificación oficial (2019) - Puntuación: 871/1000</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="item-title">Microsoft Word 2016</div>
+                        <div class="item-description">Certificación oficial (2018) - Puntuación: 807/1000</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="item-title">Microsoft PowerPoint 2013</div>
+                        <div class="item-description">Certificación oficial (2017) - Puntuación: 731/1000</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="item-title">Fundación Telefónica - Conecta Empleo</div>
+                        <div class="item-description">Virtualización de sistemas operativos con VirtualBox</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="item-title">Fundación Telefónica - Conecta Empleo</div>
+                        <div class="item-description">Fundamentos de UX - FT Ed.2 (2025)</div>
+                    </div>
+                    
+                    <div class="cert-item">
+                        <div class="item-title">Fundación Telefónica - Conecta Empleo</div>
+                        <div class="item-description">Java Standard, Programación e Introducción IT (2024)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-section">
+                <h3 class="main-title">Eventos y Hackatones</h3>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">TALENT LAND GUADALAJARA 2025</div>
+                    </div>
+                    <div class="item-description">Participante activo como desarrollador Fullstack y líder de equipo</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">TALENT LAND GUADALAJARA 2024</div>
+                    </div>
+                    <div class="item-description">Participante</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-title">BECA PARA TALENT LAND 2025</div>
+                    </div>
+                    <div class="item-description">Seleccionado por Capital One por destacado desempeño</div>
+                </div>
+            </div>
+            
+            <div class="main-section">
+                <h3 class="main-title">Intereses Profesionales</h3>
+                
+                <div class="interests">
+                    <div class="interest-item">Desarrollo web</div>
+                    <div class="interest-item">Desarrollo de aplicaciones</div>
+                    <div class="interest-item">Ciberseguridad</div>
+                    <div class="interest-item">Inteligencia artificial</div>
+                    <div class="interest-item">Redes</div>
+                    <div class="interest-item">Electrónica (Arduino)</div>
+                    <div class="interest-item">Mecatrónica</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
